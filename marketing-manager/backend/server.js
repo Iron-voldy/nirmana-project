@@ -104,9 +104,13 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-const PORT = process.env.PORT || 5000;
+// Try using a different port to avoid potential conflicts
+const PORT = 5000;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`));
+// Start the server with explicit port number
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
+});
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {

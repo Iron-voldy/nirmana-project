@@ -40,7 +40,7 @@ const User = mongoose.model('User', userSchema);
 const connectDB = async () => {
   try {
     // Use a default MongoDB connection string if MONGO_URI isn't defined
-    const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/marketing-manager';
+    const mongoURI = process.env.MONGO_URI || 'mongodb+srv://admin:12123@marketing-manager.kokhud8.mongodb.net/?retryWrites=true&w=majority&appName=marketing-manager';
     
     console.log('Connecting to MongoDB...');
     const conn = await mongoose.connect(mongoURI, {
@@ -60,7 +60,7 @@ const connectDB = async () => {
 const createTestUser = async () => {
   try {
     // Check if the user already exists
-    const existingUser = await User.findOne({ email: 'admin@example.com' });
+    const existingUser = await User.findOne({ email: 'nirmana1@gmail.com' });
     
     if (existingUser) {
       console.log('Test user already exists');
@@ -69,12 +69,12 @@ const createTestUser = async () => {
     
     // Create a hashed password
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash('password123', salt);
+    const hashedPassword = await bcrypt.hash('Password123@', salt);
     
     // Create new user
     const newUser = new User({
       name: 'Marketing Manager',
-      email: 'nirmana@gmail.com',
+      email: 'nirmana1@gmail.com',
       password: hashedPassword,
       role: 'marketing_manager'
     });

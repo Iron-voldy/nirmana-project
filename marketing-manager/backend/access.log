@@ -1,0 +1,2 @@
+::1 - - [30/Mar/2025:14:52:41 +0000] "POST /api/auth/login HTTP/1.1" 500 26
+::1 - - [30/Mar/2025:14:57:16 +0000] "POST /api/auth/login HTTP/1.1" 500 26
